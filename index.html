@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day 🌹</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+<style>
+:root { --primary-pink: #ff4d6d; }
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffeef2 0%, #ffccd5 100%);
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    color: var(--primary-pink);
+    user-select: none;
+    pointer-events: none;
+    animation: floatUp linear infinite;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.6; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 40px;
+    border-radius: 40px;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+    text-align: center;
+    width: 350px;
+    z-index: 10;
+    border: 2px solid white;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #c9184a;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #c9184a;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--primary-pink);
+    color: white;
+    transition: transform 0.2s ease-out;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="box">
+
+<h1>Happy Rose Day 🌹</h1>
+
+<p id="text">
+A rose for the most beautiful person in my life.  
+Just like this rose, you make everything around you brighter, softer, and more lovely.
+</p>
+
+<button onclick="reveal()">Tap for a Surprise</button>
+
+</div>
+
+<script>
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '🌹';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 6000);
+}
+setInterval(createHeart, 300);
+
+function reveal() {
+    document.getElementById("box").innerHTML = `
+        <h1>For You ❤️</h1>
+        <p>
+        This rose isn’t just a flower.<br>
+        It’s a little reminder of how special you are to me.<br><br>
+        Thank you Pragya for being in my life.<br>
+        You make every day feel like spring 🌹
+        </p>
+    `;
+}
+
+</script>
+
+</body>
+</html>
